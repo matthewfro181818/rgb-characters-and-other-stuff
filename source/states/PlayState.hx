@@ -737,6 +737,12 @@ class PlayState extends MusicBeatState {
 	public function reloadHealthBarColors() {
 		healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]),
 			FlxColor.fromRGB(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1], boyfriend.healthColorArray[2]));
+		// OPTIONAL: recolor health bar sprites if using images
+		var bfPath = 'assets/data/recolors/' + boyfriend.curCharacter + '.json';
+		var bfMap = backend.RecolorPreset.load(bfPath);
+		if (bfMap != null && bfMap.keys().hasNext()) {
+			backend.RecolorUtil.recolor(healthBar, bfMap);
+		}
 	}
 
 	public function addCharacterToList(newCharacter:String, type:Int) {
