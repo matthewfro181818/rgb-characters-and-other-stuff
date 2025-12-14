@@ -224,7 +224,7 @@ class Character extends FlxSprite {
 		// APPLY RECOLOR PRESET (SAFE, ONCE)
 		// =======================================
 		if (curCharacter != null) {
-			var path = 'assets/data/recolors/' + curCharacter + '.json';
+			var path = 'assets/shared/data/recolors/' + curCharacter + '.json';
 			var map = backend.RecolorPreset.load(path);
 
 			if (map != null && map.keys().hasNext()) {

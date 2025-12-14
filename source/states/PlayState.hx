@@ -275,7 +275,7 @@ class PlayState extends MusicBeatState {
 		if (char == null || char.curCharacter == null)
 			return;
 
-		var path = 'assets/data/recolors/' + char.curCharacter + '.json';
+		var path = 'assets/shared/data/recolors/' + char.curCharacter + '.json';
 		var map = backend.RecolorPreset.load(path);
 
 		if (map != null && map.keys().hasNext()) {

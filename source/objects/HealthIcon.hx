@@ -23,38 +23,37 @@ class HealthIcon extends FlxSprite {
 	private var iconOffsets:Array<Float> = [0, 0];
 
 	public function changeIcon(char:String, ?allowGPU:Bool = true) {
-		if (this.char != char) {
-			var name:String = 'icons/' + char;
-			if (!Paths.fileExists('images/' + name + '.png', IMAGE))
-				name = 'icons/icon-' + char; // Older versions of psych engine's support
-			if (!Paths.fileExists('images/' + name + '.png', IMAGE))
-				name = 'icons/icon-face'; // Prevents crash from missing icon
+		if (this.char == char)
+			return;
 
-			var graphic = Paths.image(name, allowGPU);
-			var iSize:Float = Math.round(graphic.width / graphic.height);
-			loadGraphic(graphic, true, Math.floor(graphic.width / iSize), Math.floor(graphic.height));
-			iconOffsets[0] = (width - 150) / iSize;
-			iconOffsets[1] = (height - 150) / iSize;
-			updateHitbox();
+		var name:String = 'icons/' + char;
+		if (!Paths.fileExists('images/' + name + '.png', IMAGE))
+			name = 'icons/icon-' + char;
+		if (!Paths.fileExists('images/' + name + '.png', IMAGE))
+			name = 'icons/icon-face';
 
-			animation.add(char, [for (i in 0...frames.frames.length) i], 0, false, isPlayer);
-			animation.play(char);
-			this.char = char;
+		var graphic = Paths.image(name, allowGPU);
+		var iSize:Float = Math.round(graphic.width / graphic.height);
+		loadGraphic(graphic, true, Math.floor(graphic.width / iSize), Math.floor(graphic.height));
 
-			// =======================================
-			// APPLY RECOLOR PRESET TO ICON (SAFE)
-			// =======================================
-			var path = 'assets/data/recolors/' + char + '.json';
-			var map = backend.RecolorPreset.load(path);
+		iconOffsets[0] = (width - 150) / iSize;
+		iconOffsets[1] = (height - 150) / iSize;
+		updateHitbox();
 
-			if (map != null && map.keys().hasNext()) {
-				backend.RecolorUtil.recolor(this, map);
-			}
+		animation.add(char, [for (i in 0...frames.frames.length) i], 0, false, isPlayer);
+		animation.play(char);
+		this.char = char;
 
-			if (char.endsWith('-pixel'))
-				antialiasing = false;
-			else
-				antialiasing = ClientPrefs.data.antialiasing;
+		antialiasing = !char.endsWith('-pixel') && ClientPrefs.data.antialiasing;
+
+		// =====================================
+		// APPLY RECOLOR (ICON)
+		// =====================================
+		var recolorPath = 'assets/shared/data/recolors/' + char + '.json';
+		var map = RecolorPreset.load(recolorPath);
+
+		if (map != null && map.keys().hasNext()) {
+			RecolorUtil.recolor(this, map);
 		}
 	}
 
