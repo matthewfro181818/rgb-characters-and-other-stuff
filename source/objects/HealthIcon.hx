@@ -57,7 +57,7 @@ var data = RecolorPreset.load(recolorPath);
 
 if (data != null)
 {
-    RecolorUtil.recolorParts(this, data);
+    RecolorUtil.recolor(this, data);
 }
 
 	}
