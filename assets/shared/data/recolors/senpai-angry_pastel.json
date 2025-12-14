@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "character": "senpai-angry",
+    "type": "oc",
+    "style": "pastel"
+  },
+  "parts": {
+    "skin": {
+      "#ffd7c2": "#ffd7c2",
+      "#ffbfa3": "#ffbfa3"
+    },
+    "clothes": {
+      "#ff0000": "#bde0fe",
+      "#cc0000": "#bde0fe"
+    },
+    "shoes": {
+      "#ffffff": "#ffffff",
+      "#e6e6e6": "#ffffff"
+    },
+    "hair": {
+      "#00ffff": "#cdb4db",
+      "#00aacc": "#cdb4db"
+    }
+  }
+}

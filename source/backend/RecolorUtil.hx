@@ -1,37 +1,44 @@
+
 package backend;
 
 import flixel.FlxSprite;
-import openfl.display.BitmapData;
-import openfl.geom.Rectangle;
-import openfl.geom.Point;
+import openfl.geom.ColorTransform;
 
 class RecolorUtil
 {
-    public static function recolor(
-        sprite:FlxSprite,
-        map:Map<Int, Int>
-    ):Void
+    public static function recolor(sprite:FlxSprite, map:Map<String, Map<String,String>>)
     {
-        if (sprite == null || sprite.pixels == null || map == null)
-            return;
+        if (sprite == null || map == null) return;
 
-        var src:BitmapData = sprite.pixels.clone();
-        var rect = src.rect;
+        var pixels = sprite.pixels;
+        if (pixels == null) return;
 
-        for (from in map.keys())
+        pixels.lock();
+
+        for (part in map.keys())
         {
-            src.threshold(
-                src, rect, new Point(),
-                "==",
-                from,
-                map.get(from),
-                0xFFFFFFFF,
-                false
-            );
+            var swaps = map.get(part);
+            for (fromHex in swaps.keys())
+            {
+                var toHex = swaps.get(fromHex);
+
+                var from = Std.parseInt(fromHex.replace("#","0xFF"));
+                var to   = Std.parseInt(toHex.replace("#","0xFF"));
+
+                pixels.threshold(
+                    pixels,
+                    pixels.rect,
+                    new openfl.geom.Point(),
+                    "==",
+                    from,
+                    to,
+                    0xFFFFFFFF,
+                    true
+                );
+            }
         }
 
-        sprite.pixels = src;
+        pixels.unlock();
         sprite.dirty = true;
-        sprite.graphic.persist = true;
     }
 }

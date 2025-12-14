@@ -228,7 +228,9 @@ class Character extends FlxSprite {
 			var map = backend.RecolorPreset.load(path);
 
 			if (map != null && map.keys().hasNext()) {
-				backend.RecolorUtil.recolor(this, map);
+				var data = backend.RecolorPreset.load(path);
+backend.RecolorUtil.recolorParts(this, data);
+
 			}
 		}
 	}

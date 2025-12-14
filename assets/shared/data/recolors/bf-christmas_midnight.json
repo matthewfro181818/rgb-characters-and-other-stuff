@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "character": "bf-christmas",
+    "type": "oc",
+    "style": "midnight"
+  },
+  "parts": {
+    "skin": {
+      "#ffd7c2": "#ffd7c2",
+      "#ffbfa3": "#ffbfa3"
+    },
+    "clothes": {
+      "#ff0000": "#1b1b5f",
+      "#cc0000": "#0a0a2a"
+    },
+    "shoes": {
+      "#ffffff": "#0f0f1a",
+      "#e6e6e6": "#0f0f1a"
+    },
+    "hair": {
+      "#00ffff": "#3f37c9",
+      "#00aacc": "#3f37c9"
+    }
+  }
+}

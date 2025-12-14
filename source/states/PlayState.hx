@@ -741,7 +741,9 @@ class PlayState extends MusicBeatState {
 		var bfPath = 'assets/data/recolors/' + boyfriend.curCharacter + '.json';
 		var bfMap = backend.RecolorPreset.load(bfPath);
 		if (bfMap != null && bfMap.keys().hasNext()) {
-			backend.RecolorUtil.recolor(healthBar, bfMap);
+			var bfData = backend.RecolorPreset.load('assets/data/recolors/' + boyfriend.curCharacter + '.json');
+backend.RecolorUtil.recolorParts(healthBar, bfData);
+
 		}
 	}
 

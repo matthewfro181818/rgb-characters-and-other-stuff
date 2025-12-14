@@ -1,5 +1,8 @@
 package objects;
 
+import backend.RecolorPreset;
+import backend.RecolorUtil;
+
 class HealthIcon extends FlxSprite {
 	public var sprTracker:FlxSprite;
 
@@ -49,12 +52,14 @@ class HealthIcon extends FlxSprite {
 		// =====================================
 		// APPLY RECOLOR (ICON)
 		// =====================================
-		var recolorPath = 'assets/shared/data/recolors/' + char + '.json';
-		var map = RecolorPreset.load(recolorPath);
+var recolorPath = 'assets/shared/data/recolors/' + char + '.json';
+var data = RecolorPreset.load(recolorPath);
 
-		if (map != null && map.keys().hasNext()) {
-			RecolorUtil.recolor(this, map);
-		}
+if (data != null)
+{
+    RecolorUtil.recolorParts(this, data);
+}
+
 	}
 
 	public var autoAdjustOffset:Bool = true;

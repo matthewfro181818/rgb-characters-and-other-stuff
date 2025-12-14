@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "character": "spirit",
+    "type": "oc",
+    "style": "void"
+  },
+  "parts": {
+    "skin": {
+      "#ffd7c2": "#ffd7c2",
+      "#ffbfa3": "#ffbfa3"
+    },
+    "clothes": {
+      "#ff0000": "#000000",
+      "#cc0000": "#000000"
+    },
+    "shoes": {
+      "#ffffff": "#222222",
+      "#e6e6e6": "#222222"
+    },
+    "hair": {
+      "#00ffff": "#3a007a",
+      "#00aacc": "#3a007a"
+    }
+  }
+}

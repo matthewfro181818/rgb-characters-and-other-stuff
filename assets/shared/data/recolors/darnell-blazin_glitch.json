@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "character": "darnell-blazin",
+    "type": "oc",
+    "style": "glitch"
+  },
+  "parts": {
+    "skin": {
+      "#ffd7c2": "#ffd7c2",
+      "#ffbfa3": "#ffbfa3"
+    },
+    "clothes": {
+      "#ff0000": "#00ff88",
+      "#cc0000": "#00ff88"
+    },
+    "shoes": {
+      "#ffffff": "#111111",
+      "#e6e6e6": "#111111"
+    },
+    "hair": {
+      "#00ffff": "#00ffff",
+      "#00aacc": "#00ffff"
+    }
+  }
+}

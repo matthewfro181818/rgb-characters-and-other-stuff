@@ -6,22 +6,19 @@ import sys.FileSystem;
 
 class RecolorPreset
 {
-    public static function load(path:String):Map<Int, Int>
+    public static function load(path:String):Dynamic
     {
-        var map = new Map<Int, Int>();
-        if (!FileSystem.exists(path)) return map;
+        if (!FileSystem.exists(path))
+            return null;
 
-        var json = Json.parse(File.getContent(path));
-        for (k in Reflect.fields(json))
+        try
         {
-            var e = Reflect.field(json, k);
-            map.set(hex(e.from), hex(e.to));
+            return Json.parse(File.getContent(path));
         }
-        return map;
-    }
-
-    static function hex(s:String):Int
-    {
-        return Std.parseInt("0xFF" + s.substr(1));
+        catch (e)
+        {
+            trace('[RecolorPreset] Failed to load ' + path);
+            return null;
+        }
     }
 }

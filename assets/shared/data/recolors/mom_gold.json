@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "character": "mom",
+    "type": "oc",
+    "style": "gold"
+  },
+  "parts": {
+    "skin": {
+      "#ffd7c2": "#ffd7c2",
+      "#ffbfa3": "#ffbfa3"
+    },
+    "clothes": {
+      "#ff0000": "#ffcc00",
+      "#cc0000": "#ffcc00"
+    },
+    "shoes": {
+      "#ffffff": "#332200",
+      "#e6e6e6": "#332200"
+    },
+    "hair": {
+      "#00ffff": "#ffdd55",
+      "#00aacc": "#ffdd55"
+    }
+  }
+}
