@@ -233,8 +233,22 @@ class Character extends FlxSprite
 		#if flxanimate
 		if(isAnimateAtlas) copyAtlasValues();
 		#end
+// =======================================
+// APPLY RECOLOR PRESET (SAFE, ONCE)
+// =======================================
+if (curCharacter != null)
+{
+    var path = 'assets/data/recolors/' + curCharacter + '.json';
+    var map = backend.RecolorPreset.load(path);
+
+    if (map != null && map.keys().hasNext())
+    {
+        backend.RecolorUtil.recolor(this, map);
+    }
 		//trace('Loaded file to character ' + curCharacter);
-	}
+
+}
+
 
 	override function update(elapsed:Float)
 	{
